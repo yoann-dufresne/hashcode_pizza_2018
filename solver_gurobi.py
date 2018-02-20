@@ -19,8 +19,8 @@ def generate_solution (prev_sol, hole=None):
 				if val == -1:
 					possible_idxs += slices_module.slices_per_tile[i][j]
 	else:
-		for i in range(hole[0], hole[0]+hole[2]):
-			for j in range(hole[1], hole[1]+hole[2]):
+		for i in range(hole[0], hole[2]):
+			for j in range(hole[1], hole[3]):
 				possible_idxs += slices_module.slices_per_tile[i][j]
 	# extract uniq idxs
 	uniq = set(possible_idxs)

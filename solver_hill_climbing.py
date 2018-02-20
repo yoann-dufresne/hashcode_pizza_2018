@@ -40,7 +40,7 @@ def generate_solution (prev_sol, filename="test"):
 		print(before, removed, after)
 
 
-def make_a_hole (sol, size, position=None):
+def make_a_hole (sol, size, position=None, area=None):
 	row = col = -1
 
 	if position == None:
@@ -53,8 +53,13 @@ def make_a_hole (sol, size, position=None):
 		col = max(0, position[1]-random.randint(0, size))
 		col = min(col, len(sol.pizza)-size)
 
-	for i in range(row, row+size):
-		for j in range(col, col+size):
+	start_row = row if area == None else area[0]
+	end_row = row+size if area == None else area[2]
+	start_col = col if area == None else area[1]
+	end_col = col if area == None else area[3]
+
+	for i in range(start_row, end_row):
+		for j in range(start_col, end_col):
 			sol.remove_slice(i, j)
 
-	return (row, col, size)
+	return start_row, start_col, end_row, end_col
