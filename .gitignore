@@ -1,0 +1,6 @@
+.DS_Store
+solutions/
+slices_save/
+__pycache__/
+*.zip
+*.out
